@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Dropdown</title>
+    <style>
+        /* Basic styling */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            /* White background */
+        }
+
+        /* Navbar container */
+        .navbar {
+            background-color: #000;
+            /* Black background for the navbar */
+            padding: 10px;
+            display: inline-flex;
+            /* Use inline-flex to make the navbar width based on content */
+            align-items: center;
+            position: relative;
+            /* Relative for dropdown positioning */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            /* Soft shadow */
+            border-radius: 10px;
+        }
+
+        /* Navbar links (hidden by default in mobile view) */
+        .nav-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: #ADD8E6;
+            /* Light blue text color */
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: #333;
+            /* Darker black on hover */
+            border-radius: 4px;
+        }
+
+        /* Dropdown button */
+        .dropdown-toggle {
+            background-color: #000;
+            /* Black button */
+            color: #ADD8E6;
+            /* Light blue text for button */
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+            /* Add some space between the dropdown and nav-links */
+        }
+
+        /* Hover effect for the dropdown button */
+        .dropdown-toggle:hover {
+            background-color: #333;
+            /* Darker black on hover */
+        }
+
+        /* Hide the links on smaller screens by default */
+        .nav-links {
+            display: none;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+
+            /* Show dropdown button on smaller screens */
+            .dropdown-toggle {
+                display: block;
+            }
+
+            /* Display nav links in a vertical column */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #000;
+                width: auto;
+                /* Ensure the nav-links shrink to fit content */
+                position: absolute;
+                top: 50px;
+                /* Position below the button */
+                left: 0;
+                border-radius: 0 0 10px 10px;
+                /* Rounded bottom edges */
+            }
+
+            .nav-links li {
+                text-align: center;
+                padding: 10px 0;
+                width: 100%;
+            }
+
+            /* Display links when the navbar is active */
+            .navbar.active .nav-links {
+                display: flex;
+            }
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 769px) {
+            .dropdown-toggle {
+                display: none;
+                /* Hide the dropdown button on larger screens */
+            }
+
+            .nav-links {
+                display: flex;
+                /* Always show links on larger screens */
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <!-- Dropdown toggle for mobile view -->
+            <button class="dropdown-toggle" id="dropdown-toggle">☰</button>
+    
+            <!-- Navigation links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#progser">Programs and Services</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script>
+        // Toggle the dropdown on button click
+        document.getElementById('dropdown-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+    
+</body>
+
+</html>

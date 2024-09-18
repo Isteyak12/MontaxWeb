@@ -1,0 +1,5 @@
+You can modify the code to make the navbar turn into a 
+dropdown button when the screen width is compressed. 
+This approach requires using media queries for 
+responsiveness and some JavaScript to handle 
+the toggle of the dropdown when the screen is smaller.

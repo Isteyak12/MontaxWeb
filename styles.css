@@ -1,0 +1,119 @@
+/* Basic styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* White background */
+    text-align: center; /* Ensure the body content centers horizontally */
+}
+
+/* Wrapper to center the navbar */
+.navbar-wrapper {
+    display: flex;
+    justify-content: center; /* This will center the navbar horizontally */
+    padding: 20px 0; /* Optional padding to give space above and below the navbar */
+}
+
+/* Navbar container */
+.navbar {
+    background-color: #000; /* Black background for the navbar */
+    padding: 10px;
+    display: inline-flex; /* Use inline-flex to fit the width of the content */
+    align-items: center;
+    position: relative; /* Relative for dropdown positioning */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    border-radius: 10px;
+}
+
+/* Navbar links (hidden by default in mobile view) */
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #ADD8E6; /* Light blue text color */
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #333; /* Darker black on hover */
+    border-radius: 4px;
+}
+
+/* Dropdown button */
+.dropdown-toggle {
+    background-color: #000; /* Black button */
+    color: #ADD8E6; /* Light blue text for button */
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px; /* Ensure even padding on all sides */
+    border-radius: 50%; /* Make the button circular */
+    transition: background-color 0.3s ease;
+    width: 50px; /* Ensure width and height are equal for a circular button */
+    height: 50px; /* Ensures symmetry */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect for the dropdown button */
+.dropdown-toggle:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+/* Hide the links on smaller screens by default */
+.nav-links {
+    display: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    /* Show dropdown button on smaller screens */
+    .dropdown-toggle {
+        display: block;
+    }
+
+    /* Display nav links in a vertical column */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        width: auto; /* Ensure the nav-links shrink to fit content */
+        position: absolute;
+        top: 50px; /* Position below the button */
+        left: 0;
+        border-radius: 0 0 10px 10px; /* Rounded bottom edges */
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    /* Display links when the navbar is active */
+    .navbar.active .nav-links {
+        display: flex;
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 769px) {
+    .dropdown-toggle {
+        display: none; /* Hide the dropdown button on larger screens */
+    }
+
+    .nav-links {
+        display: flex; /* Always show links on larger screens */
+        justify-content: center;
+    }
+}
